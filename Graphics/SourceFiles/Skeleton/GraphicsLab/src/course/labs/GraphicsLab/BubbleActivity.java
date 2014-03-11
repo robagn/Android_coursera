@@ -57,7 +57,7 @@ public class BubbleActivity extends Activity {
 	private int mSoundID;
 	// Audio volume
 	private float mStreamVolume;
-
+//questo è il mio commento
 	// Gesture Detector
 	private GestureDetector mGestureDetector;
 
