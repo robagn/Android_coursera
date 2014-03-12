@@ -255,7 +255,7 @@ public class BubbleActivity extends Activity {
 			if (speedMode == RANDOM) {
 				
 				// TODO - set rotation in range [1..3]
-				mDRotate = 0;
+				mDRotate = r.nextInt(3-1)+3;
 
 				
 			} else {
