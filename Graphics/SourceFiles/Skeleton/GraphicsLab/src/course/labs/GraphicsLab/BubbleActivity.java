@@ -57,7 +57,7 @@ public class BubbleActivity extends Activity {
 	private int mSoundID;
 	// Audio volume
 	private float mStreamVolume;
-//questo è il mio commento
+//questo est il mio commento
 	// Gesture Detector
 	private GestureDetector mGestureDetector;
 
@@ -289,8 +289,8 @@ public class BubbleActivity extends Activity {
 				// TODO - Set movement direction and speed
 				// Limit movement speed in the x and y
 				// direction to [-3..3].
-
-
+				mDx = r.nextInt(3-6)+3;
+				mDy = r.nextInt(3-6)+3;
 			
 			
 			
@@ -308,7 +308,7 @@ public class BubbleActivity extends Activity {
 			} else {
 			
 				//TODO - set scaled bitmap size in range [1..3] * BITMAP_SIZE
-				mScaledBitmapWidth = 0;
+				mScaledBitmapWidth = r.nextInt(3-1)+3*BITMAP_SIZE;
 			
 			}
 
