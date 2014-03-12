@@ -256,7 +256,7 @@ public class BubbleActivity extends Activity {
 				
 				// TODO - set rotation in range [1..3]
 				mDRotate = r.nextInt(3-1)+3;
-
+//
 				
 			} else {
 			
