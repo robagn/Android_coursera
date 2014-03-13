@@ -156,8 +156,8 @@ public class BubbleActivity extends Activity {
 				// ViewGroup.getChildCount() method
 
 log("tappato!");
-				
-				
+final BubbleView bubble =new BubbleView(mFrame.getContext(),event.getRawX(),event.getRawY());
+				mFrame.addView(bubble);
 				
 				
 				
@@ -288,8 +288,8 @@ log("tappato!");
 				// TODO - Set movement direction and speed
 				// Limit movement speed in the x and y
 				// direction to [-3..3].
-				mDx = r.nextInt(3-6)+3;
-				mDy = r.nextInt(3-6)+3;
+				mDx = r.nextInt(6)-3;
+				mDy = r.nextInt(6)-3;
 			
 			
 			
@@ -307,7 +307,7 @@ log("tappato!");
 			} else {
 			
 				//TODO - set scaled bitmap size in range [1..3] * BITMAP_SIZE
-				mScaledBitmapWidth = r.nextInt(3-1)+3*BITMAP_SIZE;
+				mScaledBitmapWidth = r.nextInt(4-1)+3*BITMAP_SIZE;
 			
 			}
 
@@ -345,7 +345,7 @@ log("tappato!");
 		private synchronized boolean intersects(float x, float y) {
 
 			// TODO - Return true if the BubbleView intersects position (x,y)
-
+			
 			return false;
 		}
 
@@ -390,8 +390,8 @@ log("tappato!");
 
 			//TODO - set mDx and mDy to be the new velocities divided by the REFRESH_RATE
 			
-			mDx = 0;
-			mDy = 0;
+			mDx = velocityX/REFRESH_RATE;
+			mDy = velocityY/REFRESH_RATE;
 
 		}
 
@@ -404,20 +404,20 @@ log("tappato!");
 			
 
 			// TODO - increase the rotation of the original image by mDRotate
-
+			mDRotate+=mDRotate;
 
 			
 			// TODO Rotate the canvas by current rotation
-
+			canvas.rotate(mDRotate, mXPos-mScaledBitmapWidth/2, mYPos-mScaledBitmapWidth/2);
 			
 			
 			// TODO - draw the bitmap at it's new location
-			
+			canvas.drawBitmap(mScaledBitmap, mXPos, mYPos, mPainter);
 
 			
 			// TODO - restore the canvas
 
-
+			canvas.restore();
 			
 		}
 
