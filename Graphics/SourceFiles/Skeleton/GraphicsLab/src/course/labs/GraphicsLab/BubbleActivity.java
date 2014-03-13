@@ -312,7 +312,7 @@ log("tappato!");
 			}
 
 			// TODO - create the scaled bitmap using size set above
-			mScaledBitmap = bitmap.createScaledBitmap( mBitmap, mScaledBitmapWidth, mScaledBitmapWidth, true);	}
+			mScaledBitmap = Bitmap.createScaledBitmap( mBitmap, mScaledBitmapWidth, mScaledBitmapWidth, true);	}
 
 		// Start moving the BubbleView & updating the display
 		private void start() {
