@@ -137,10 +137,9 @@ public class BubbleActivity extends Activity {
 				// You can get all Views in mFrame using the
 				// ViewGroup.getChildCount() method
 				if (velocityX < -10.0f) {
-					mFrame = mFrame == 0 ? 1
-							: 0;
-					switchLayoutStateTo(mCurrentLayoutState);
-				}
+				log("verso sinistra");
+				}else if(velocityX >10.0f){
+                               log("verso destra");}
 				return true;
 			}
 		
@@ -156,7 +155,7 @@ public class BubbleActivity extends Activity {
 				// You can get all Views in mFrame using the
 				// ViewGroup.getChildCount() method
 
-
+log("tappato!");
 				
 				
 				
@@ -255,7 +254,7 @@ public class BubbleActivity extends Activity {
 			if (speedMode == RANDOM) {
 				
 				// TODO - set rotation in range [1..3]
-				mDRotate = r.nextInt(3-1)+3;
+				mDRotate = r.nextInt(4-1)+3;
 //
 				
 			} else {
@@ -313,8 +312,7 @@ public class BubbleActivity extends Activity {
 			}
 
 			// TODO - create the scaled bitmap using size set above
-			mScaledBitmap = null;
-		}
+			mScaledBitmap = bitmap.createScaledBitmap( mBitmap, mScaledBitmapWidth, mScaledBitmapWidth, true);	}
 
 		// Start moving the BubbleView & updating the display
 		private void start() {
