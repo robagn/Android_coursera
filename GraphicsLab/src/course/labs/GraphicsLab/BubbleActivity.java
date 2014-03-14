@@ -160,8 +160,9 @@ log("tappato!");
 	for (int i=0; i<numero; i++){
 		if (((BubbleView) mFrame.getChildAt(i)).intersects(event.getRawX(),event.getRawY())){
 			log("intersetta");
+			//(BubbleView) mFrame.getChildAt(i)).pop;
 			return false;
-		};
+		}
 	};
 final BubbleView bubble =new BubbleView(mFrame.getContext(),event.getRawX(),event.getRawY());
 				mFrame.addView(bubble);
@@ -319,7 +320,7 @@ final BubbleView bubble =new BubbleView(mFrame.getContext(),event.getRawX(),even
 			}
 
 			// TODO - create the scaled bitmap using size set above
-			mScaledBitmap = Bitmap.createScaledBitmap( mBitmap, mScaledBitmapWidth, mScaledBitmapWidth, true);	}
+			mScaledBitmap = Bitmap.createScaledBitmap( mScaledBitmap, mScaledBitmapWidth, mScaledBitmapWidth, false);	}
 
 		// Start moving the BubbleView & updating the display
 		private void start() {
@@ -372,7 +373,7 @@ final BubbleView bubble =new BubbleView(mFrame.getContext(),event.getRawX(),even
 					public void run() {
 						
 						// TODO - Remove the BubbleView from mFrame
-
+						mFrame.removeView(BubbleView.this);
 
 						
 						
@@ -382,9 +383,9 @@ final BubbleView bubble =new BubbleView(mFrame.getContext(),event.getRawX(),even
 							// TODO - If the bubble was popped by user,
 							// play the popping sound
 
-						
+							mSoundPool.play(mSoundID, mStreamVolume, mStreamVolume, 0, 1, 1);
 						}
-
+					
 						log("Bubble removed from view!");
 					
 					}
