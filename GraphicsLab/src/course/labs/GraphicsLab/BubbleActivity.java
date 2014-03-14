@@ -416,7 +416,7 @@ final BubbleView bubble =new BubbleView(mFrame.getContext(),event.getRawX(),even
 
 			
 			// TODO Rotate the canvas by current rotation
-			canvas.rotate(mDRotate, mXPos-mScaledBitmapWidth/2, mYPos-mScaledBitmapWidth/2);
+			canvas.rotate(mDRotate, mXPos+mScaledBitmapWidth/2, mYPos+mScaledBitmapWidth/2);
 			
 			
 			// TODO - draw the bitmap at it's new location
