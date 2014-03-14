@@ -156,6 +156,13 @@ public class BubbleActivity extends Activity {
 				// ViewGroup.getChildCount() method
 
 log("tappato!");
+	int numero=mFrame.getChildCount();
+	for (int i=0; i<numero; i++){
+		if (((BubbleView) mFrame.getChildAt(i)).intersects(event.getRawX(),event.getRawY())){
+			log("intersetta");
+			return false;
+		};
+	};
 final BubbleView bubble =new BubbleView(mFrame.getContext(),event.getRawX(),event.getRawY());
 				mFrame.addView(bubble);
 				
@@ -345,7 +352,8 @@ final BubbleView bubble =new BubbleView(mFrame.getContext(),event.getRawX(),even
 		private synchronized boolean intersects(float x, float y) {
 
 			// TODO - Return true if the BubbleView intersects position (x,y)
-			
+			if((x>=mXPos&&x<=mXPos+mScaledBitmapWidth)&&(y>=mYPos&&y<=mYPos+mScaledBitmapWidth)){
+				return true;}
 			return false;
 		}
 
