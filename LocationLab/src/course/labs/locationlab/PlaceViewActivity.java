@@ -72,17 +72,23 @@ public class PlaceViewActivity extends ListActivity implements LocationListener 
         // 1) The current location is new - download new Place Badge. Issue the
         // following log call:
         // log("Starting Place Download");
-				new PlaceDownloaderTask(PlaceViewActivity.this).execute();
-				log("Starting Place Download");
+				if(mLastLocationReading != null && !mAdapter.intersects(mLastLocationReading)){
+				new PlaceDownloaderTask(PlaceViewActivity.this).execute(mLastLocationReading);
+				log("Starting Place Download");}
         // 2) The current location has been seen before - issue Toast message.
         // Issue the following log call:
         // log("You already have this location badge");
-				//log("You already have this location badge");
+				if(mAdapter.intersects(mLastLocationReading)){
+					Toast.makeText(getApplicationContext(), "You already have this location badge", Toast.LENGTH_LONG).show();				
+					
+				log("You already have this location badge");}
         // 3) There is no current location - response is up to you. The best
         // solution is to disable the footerView until you have a location.
         // Issue the following log call:
-        // log("Location data is not available");
- 		
+				if(mLastLocationReading==null){
+				log("Location data is not available");
+				//this.setVisibility(0);
+				}
 			}});
 		getListView().setAdapter(mAdapter);
 	}
@@ -140,14 +146,14 @@ public class PlaceViewActivity extends ListActivity implements LocationListener 
         // the current location
         // 3) If the current location is newer than the last locations, keep the
         // current location.
-		if(mLastLocationReading==null){
+	//	if(mLastLocationReading==null){
 			mLastLocationReading=currentLocation;
-			log("xxx");
-		} 
-		if(age(currentLocation)<age(mLastLocationReading)){
-			mLastLocationReading=currentLocation;
-			log("yyy");
-		}
+			//log("xxx");
+		//} 
+//		if(age(currentLocation)<age(mLastLocationReading)){
+//			mLastLocationReading=currentLocation;
+//			log("yyy");
+//		}
 
 	}
 
